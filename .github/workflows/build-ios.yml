@@ -12,16 +12,39 @@ jobs:
     runs-on: macos-latest
 
     steps:
+      # 1. Получаем исходники
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2. Проверяем Xcode
       - name: Show Xcode version
         run: xcodebuild -version
 
+      # 3. Ищем Xcode-проект
+      - name: Find Xcode project
+        run: |
+          PROJECT=$(find . -name "*.xcodeproj" -print -quit)
+
+          if [ -z "$PROJECT" ]; then
+            echo "ERROR: Xcode project not found"
+            echo "Repository files:"
+            find . -maxdepth 5 -type f
+            exit 1
+          fi
+
+          echo "Found project: $PROJECT"
+          echo "PROJECT=$PROJECT" >> $GITHUB_ENV
+
+      # 4. Определяем схему сборки
+      - name: Find build scheme
+        run: |
+          xcodebuild -list -project "$PROJECT"
+
+      # 5. Собираем приложение
       - name: Build iOS app
         run: |
           xcodebuild \
-            -project StreamShelf-iOS/StreamShelf.xcodeproj \
+            -project "$PROJECT" \
             -scheme StreamShelf \
             -configuration Release \
             -sdk iphoneos \
@@ -30,14 +53,28 @@ jobs:
             CODE_SIGNING_ALLOWED=NO \
             build
 
+      # 6. Проверяем результат сборки
+      - name: Check app
+        run: |
+          APP=$(find build/Build/Products/Release-iphoneos \
+            -maxdepth 1 -name "*.app" -print -quit)
+
+          if [ -z "$APP" ]; then
+            echo "ERROR: App not found"
+            exit 1
+          fi
+
+          echo "App found: $APP"
+          echo "APP=$APP" >> $GITHUB_ENV
+
+      # 7. Создаём IPA
       - name: Package IPA
         run: |
           mkdir -p Payload
-
-          cp -R build/Build/Products/Release-iphoneos/StreamShelf.app Payload/
-
+          cp -R "$APP" Payload/
           zip -r StreamShelf.ipa Payload
 
+      # 8. Загружаем IPA в GitHub
       - name: Upload IPA
         uses: actions/upload-artifact@v4
         with:
