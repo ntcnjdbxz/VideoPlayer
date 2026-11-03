@@ -1,0 +1,42 @@
+// !$*UTF8*$!
+{
+ archiveVersion = 1;
+ classes = {};
+ objectVersion = 56;
+ objects = {
+  A00000000000000000000001 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamShelfApp.swift; sourceTree = "<group>";};
+  A00000000000000000000002 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>";};
+  A00000000000000000000003 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchRecord.swift; sourceTree = "<group>";};
+  A00000000000000000000004 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStore.swift; sourceTree = "<group>";};
+  A00000000000000000000005 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>";};
+  A00000000000000000000006 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataParser.swift; sourceTree = "<group>";};
+  A00000000000000000000007 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlocker.swift; sourceTree = "<group>";};
+  A00000000000000000000008 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewContainer.swift; sourceTree = "<group>";};
+  A00000000000000000000009 = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = PlaybackBridge.js; sourceTree = "<group>";};
+  A0000000000000000000000A = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>";};
+  A0000000000000000000000B = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StreamShelf.app; sourceTree = BUILT_PRODUCTS_DIR;};
+  A0000000000000000000000C = {isa = PBXGroup; children = (A00000000000000000000001,A00000000000000000000002,A00000000000000000000003,A00000000000000000000004,A00000000000000000000005,A00000000000000000000006,A00000000000000000000007,A00000000000000000000008,A00000000000000000000009,A0000000000000000000000A,); path = StreamShelf; sourceTree = "<group>";};
+  A0000000000000000000000D = {isa = PBXGroup; children = (A0000000000000000000000C, A0000000000000000000000E,); sourceTree = "<group>";};
+  A0000000000000000000000E = {isa = PBXGroup; children = (A0000000000000000000000B,); name = Products; sourceTree = "<group>";};
+  A0000000000000000000000F = {isa = PBXProject; attributes = {BuildIndependentTargetsInParallel = 1; LastUpgradeCheck = 1500; TargetAttributes = {A00000000000000000000010 = {CreatedOnToolsVersion = 15.0;};};}; buildConfigurationList = A00000000000000000000021; compatibilityVersion = "Xcode 14.0"; developmentRegion = en; mainGroup = A0000000000000000000000D; productRefGroup = A0000000000000000000000E; projectDirPath = ""; projectRoot = ""; targets = (A00000000000000000000010,);};
+  A00000000000000000000010 = {isa = PBXNativeTarget; buildConfigurationList = A00000000000000000000020; buildPhases = (A00000000000000000000011,A00000000000000000000012,); buildRules = (); dependencies = (); name = StreamShelf; productName = StreamShelf; productReference = A0000000000000000000000B; productType = "com.apple.product-type.application";};
+  A00000000000000000000011 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A00000000000000000000013,A00000000000000000000014,A00000000000000000000015,A00000000000000000000016,A00000000000000000000017,A00000000000000000000018,A00000000000000000000019,A0000000000000000000001A,); runOnlyForDeploymentPostprocessing = 0;};
+  A00000000000000000000012 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (A0000000000000000000001B,); runOnlyForDeploymentPostprocessing = 0;};
+  A00000000000000000000013 = {isa = PBXBuildFile; fileRef = A00000000000000000000001;};
+  A00000000000000000000014 = {isa = PBXBuildFile; fileRef = A00000000000000000000002;};
+  A00000000000000000000015 = {isa = PBXBuildFile; fileRef = A00000000000000000000003;};
+  A00000000000000000000016 = {isa = PBXBuildFile; fileRef = A00000000000000000000004;};
+  A00000000000000000000017 = {isa = PBXBuildFile; fileRef = A00000000000000000000005;};
+  A00000000000000000000018 = {isa = PBXBuildFile; fileRef = A00000000000000000000006;};
+  A00000000000000000000019 = {isa = PBXBuildFile; fileRef = A00000000000000000000007;};
+  A0000000000000000000001A = {isa = PBXBuildFile; fileRef = A00000000000000000000008;};
+  A0000000000000000000001B = {isa = PBXBuildFile; fileRef = A00000000000000000000009;};
+  A0000000000000000000001C = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CURRENT_PROJECT_VERSION = 1; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = StreamShelf/Info.plist; IPHONEOS_DEPLOYMENT_TARGET = 17.0; MARKETING_VERSION = 0.1.0; PRODUCT_BUNDLE_IDENTIFIER = com.example.StreamShelf; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.9; TARGETED_DEVICE_FAMILY = "1,2";}; name = Debug;};
+  A0000000000000000000001D = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CURRENT_PROJECT_VERSION = 1; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = StreamShelf/Info.plist; IPHONEOS_DEPLOYMENT_TARGET = 17.0; MARKETING_VERSION = 0.1.0; PRODUCT_BUNDLE_IDENTIFIER = com.example.StreamShelf; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.9; TARGETED_DEVICE_FAMILY = "1,2";}; name = Release;};
+  A0000000000000000000001E = {isa = XCBuildConfiguration; buildSettings = {CLANG_ENABLE_MODULES = YES; SDKROOT = iphoneos; SWIFT_VERSION = 5.9;}; name = Debug;};
+  A0000000000000000000001F = {isa = XCBuildConfiguration; buildSettings = {CLANG_ENABLE_MODULES = YES; SDKROOT = iphoneos; SWIFT_VERSION = 5.9;}; name = Release;};
+  A00000000000000000000020 = {isa = XCConfigurationList; buildConfigurations = (A0000000000000000000001C,A0000000000000000000001D,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release;};
+  A00000000000000000000021 = {isa = XCConfigurationList; buildConfigurations = (A0000000000000000000001E,A0000000000000000000001F,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release;};
+ };
+ rootObject = A0000000000000000000000F;
+}
