@@ -1,0 +1,46 @@
+
+name: Build StreamShelf IPA
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      - name: Build iOS app
+        run: |
+          xcodebuild \
+            -project StreamShelf-iOS/StreamShelf.xcodeproj \
+            -scheme StreamShelf \
+            -configuration Release \
+            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      - name: Package IPA
+        run: |
+          mkdir -p Payload
+
+          cp -R build/Build/Products/Release-iphoneos/StreamShelf.app Payload/
+
+          zip -r StreamShelf.ipa Payload
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: StreamShelf-IPA
+          path: StreamShelf.ipa
+          retention-days: 7
